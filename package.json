@@ -1,7 +1,7 @@
 {
   "name": "@nerdos/page-metadata-parser",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@7.9.0",
   "description": "",
   "author": "Captain Martin <captainmartinisanerd@gmail.com>",
