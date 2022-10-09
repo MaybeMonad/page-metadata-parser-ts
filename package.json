@@ -1,20 +1,25 @@
 {
-  "name": "pkg-name",
+  "name": "@nerdos/page-metadata-parser",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@7.9.0",
   "description": "",
   "author": "Captain Martin <captainmartinisanerd@gmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/captain-martin",
-  "homepage": "https://github.com/NerdoTech/pkg-name#readme",
+  "homepage": "https://github.com/NerdoTech/page-metadata-parser#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NerdoTech/pkg-name.git"
+    "url": "git+https://github.com/NerdoTech/page-metadata-parser.git"
   },
-  "bugs": "https://github.com/NerdoTech/pkg-name/issues",
+  "bugs": "https://github.com/NerdoTech/page-metadata-parser/issues",
   "keywords": [],
   "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "scope": "@nerdos",
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
