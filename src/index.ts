@@ -2,6 +2,15 @@ type Context = { url: string };
 
 type ValueOf<T> = T[keyof T];
 
+type RuleSets = {
+  [key: string]: {
+    rules: [string, (element: Element) => string | null][];
+    scorers?: ((element: Element, score: number) => number | undefined)[];
+    defaultValue?: (context: Context) => string;
+    processors?: (((value: string, context: Context) => string) | ((keywords: string, context: Context) => string[]))[];
+  }
+}
+
 function makeUrlAbsolute(base: string, relative: string) {
   return new URL(relative, base).href;
 }
@@ -69,15 +78,6 @@ function buildRuleSet(ruleSet: ValueOf<RuleSets>) {
       return maxValue;
     }
   };
-}
-
-type RuleSets = {
-  [key: string]: {
-    rules: [string, (element: Element) => string | null][];
-    scorers?: ((element: Element, score: number) => number | undefined)[];
-    defaultValue?: (context: Context) => string;
-    processors?: (((value: string, context: Context) => string) | ((keywords: string, context: Context) => string[]))[];
-  }
 }
 
 const metadataRuleSets: RuleSets = {
@@ -188,7 +188,7 @@ const metadataRuleSets: RuleSets = {
   },
 };
 
-function getMetadata(doc: Document, location: Location, customRuleSets: RuleSets) {
+function getMetadata(doc: Document, location: Location, customRuleSets?: RuleSets) {
   const metadata = {} as Record<string, string | string[] | undefined>;
   const context = {
     url: location.href,
